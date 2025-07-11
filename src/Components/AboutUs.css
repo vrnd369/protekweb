@@ -527,3 +527,46 @@
     flex-direction: column !important;
   }
 }
+
+/* Desktop: keep side-by-side and use viewport height minus header */
+@media (min-width: 1025px) {
+  .how-it-started {
+    flex-direction: row;
+    height: calc(100vh - 90px);
+    margin-top: 0;
+  }
+  .left-content, .right-content {
+    max-width: 50%;
+    width: 50%;
+    padding: 20px;
+  }
+}
+
+/* Tablet: stack vertically, remove fixed height */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .how-it-started {
+    flex-direction: column;
+    height: auto;
+    margin-top: 90px;
+  }
+  .left-content, .right-content {
+    max-width: 100%;
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+
+/* Mobile: stack vertically, remove fixed height and reduce margin */
+@media (max-width: 768px) {
+  .how-it-started {
+    flex-direction: column;
+    height: auto;
+    margin-top: 70px;
+    padding: 10px 0;
+  }
+  .left-content, .right-content {
+    max-width: 100%;
+    width: 100%;
+    padding: 10px 0;
+  }
+}
