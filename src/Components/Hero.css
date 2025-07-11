@@ -1,0 +1,220 @@
+/* General Styles for the Homepage */
+.homepage-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Carousel and image container setup */
+.carousel-container,
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Image styling */
+.carousel-image,
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  animation: fadeInOut 10s infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+  will-change: opacity;
+}
+
+/* Create the fade-in and fade-out effect for images */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+}
+
+/* Apply delays to each image to create staggered fade-in */
+.carousel-image:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.carousel-image:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.carousel-image:nth-child(3) {
+  animation-delay: 4s;
+}
+
+.carousel-image:nth-child(4) {
+  animation-delay: 6s;
+}
+
+.carousel-image:nth-child(5) {
+  animation-delay: 8s;
+}
+
+/* Apply delays to mobile images */
+.image:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.image:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.image:nth-child(3) {
+  animation-delay: 4s;
+}
+
+.image:nth-child(4) {
+  animation-delay: 6s;
+}
+
+.image:nth-child(5) {
+  animation-delay: 8s;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .homepage-container {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .homepage-container {
+    height: 100vh;
+  }
+  
+  .carousel-image,
+  .image {
+    object-position: center center;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-container {
+    height: 100vh;
+  }
+  
+  .carousel-container {
+    display: none;
+  }
+
+  .image-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .image {
+    object-position: center center;
+  }
+}
+
+@media (max-width: 576px) {
+  .homepage-container {
+    height: 100vh;
+  }
+  
+  .image {
+    object-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-container {
+    height: 100vh;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .homepage-container {
+    height: 100vh;
+  }
+  
+  .carousel-image,
+  .image {
+    object-position: center center;
+  }
+}
+
+/* High DPI display support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .carousel-image,
+  .image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-image,
+  .image {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .carousel-image:nth-child(1),
+  .image:nth-child(1) {
+    opacity: 1;
+  }
+  
+  .carousel-image:nth-child(n+2),
+  .image:nth-child(n+2) {
+    opacity: 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .homepage-container {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .carousel-image,
+  .image {
+    animation: none;
+    opacity: 1;
+    position: static;
+    height: auto;
+    max-height: 50vh;
+  }
+}
